@@ -15,6 +15,7 @@ as part of the API
 ## Contents
 
 <!-- TOC -->
+
 - [Bump rules](#bump-rules)
 - [Install](#install)
 - [Quick start usage](#quick-start-usage)

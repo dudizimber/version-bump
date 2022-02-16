@@ -8,7 +8,7 @@ describe('CliBumpStrategy', () => {
       bump: 'major'
     })
 
-    await s.init({ currentVersion: '1.2.3' })
+    await s.init({ currentVersion: '1.2.3+1' })
 
     const versionData = await s.getNextVersion()
 
@@ -34,6 +34,27 @@ describe('CliBumpStrategy', () => {
 
     expect(versionData).toEqual({
       build: undefined,
+      major: 1,
+      minor: 2,
+      patch: 3,
+      pre: undefined,
+      matches: true,
+      version: '1.2.3'
+    })
+  })
+
+  it('should bump the major version 2 and leave reset build version', async () => {
+    const s = new CliBumpStrategy({
+      bump: 'major',
+      restartBuildVersion: true
+    })
+
+    await s.init({ currentVersion: '1.2.3-pre.1' })
+
+    const versionData = await s.getNextVersion()
+
+    expect(versionData).toEqual({
+      build: 0,
       major: 1,
       minor: 2,
       patch: 3,

@@ -46,7 +46,8 @@ export default class ConfigParser {
   async parseConfig (useConfigFile = true): Promise<CombinedConfigOptions> {
     const configFile = join(this.projectRoot, this.configFile)
     let options: ConfigParserOptions = {
-      strategy: ''
+      strategy: '',
+      restartBuildVersion: false
     }
 
     let defaultOptions: CombinedConfigOptions = this.options

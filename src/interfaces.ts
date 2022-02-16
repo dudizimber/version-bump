@@ -27,6 +27,12 @@ export namespace IVersionBump {
      */
     onBeforeRelease?: (versionData: ParsedSemVerResult) => ParsedSemVerResult
 
+    /**
+     * Restart the build version with 0 when bumping the major/minor/patch version.
+     * Currently it deletes the build version
+     */
+    restartBuildVersion?: boolean
+
     [key: string]: any
   }
 

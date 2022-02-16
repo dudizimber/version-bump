@@ -105,9 +105,14 @@ export default class CliBumpStrategy extends BaseVersionStrategy<
       }
     }
 
-    versionData = bumpVersionData(versionData, bumpLevel, {
-      logger: this.getLogger()
-    })
+    versionData = bumpVersionData(
+      versionData,
+      bumpLevel,
+      {
+        logger: this.getLogger()
+      },
+      this.options.restartBuildVersion
+    )
 
     return versionData
   }
