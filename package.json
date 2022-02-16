@@ -1,6 +1,6 @@
 {
-  "name": "@theo.gravity/version-bump",
-  "version": "2.0.14",
+  "name": "version-bump-updated",
+  "version": "2.0.16",
   "description": "Version bump package.json (or a version file) via various plugins (eg cli, git, etc).",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -34,7 +34,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/theogravity/version-bump.git"
+    "url": "git+https://github.com/dudizimber/version-bump.git"
   },
   "keywords": [
     "version",
@@ -61,9 +61,9 @@
   "author": "Theo Gravity <theo@suteki.nu>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/theogravity/version-bump/issues"
+    "url": "https://github.com/dudizimber/version-bump/issues"
   },
-  "homepage": "https://github.com/theogravity/version-bump#readme",
+  "homepage": "https://github.com/dudizimber/version-bump#readme",
   "dependencies": {
     "debug": "^4.3.1",
     "find-plugins": "^1.1.7",

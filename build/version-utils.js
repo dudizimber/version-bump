@@ -19,57 +19,57 @@ function bumpVersionData(versionData, bumpLevel, internalOpts, restartBuildVersi
             // so no update to the major version happens
             if (newVersionData.pre) {
                 newVersionData.pre = undefined;
-                newVersionData.build = restartBuildVersion ? 0 : undefined;
+                newVersionData.build = restartBuildVersion ? [0] : undefined;
                 break;
             }
             newVersionData.major += 1;
             newVersionData.minor = 0;
             newVersionData.patch = 0;
             newVersionData.pre = undefined;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             break;
         case consts_1.BUMP_LEVEL.MINOR:
             logger.info('Bumping minor version...');
             if (newVersionData.pre) {
                 newVersionData.pre = undefined;
-                newVersionData.build = restartBuildVersion ? 0 : undefined;
+                newVersionData.build = restartBuildVersion ? [0] : undefined;
                 break;
             }
             newVersionData.minor += 1;
             newVersionData.patch = 0;
             newVersionData.pre = undefined;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             break;
         case consts_1.BUMP_LEVEL.PATCH:
             logger.info('Bumping patch version...');
             if (newVersionData.pre) {
                 newVersionData.pre = undefined;
-                newVersionData.build = restartBuildVersion ? 0 : undefined;
+                newVersionData.build = restartBuildVersion ? [0] : undefined;
                 break;
             }
             newVersionData.patch += 1;
             newVersionData.pre = undefined;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             break;
         case consts_1.BUMP_LEVEL.PRE_MAJOR:
             logger.info('Bumping pre-major version...');
             newVersionData.major += 1;
             newVersionData.minor = 0;
             newVersionData.patch = 0;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             newVersionData.pre = [0];
             break;
         case consts_1.BUMP_LEVEL.PRE_MINOR:
             logger.info('Bumping pre-minor version...');
             newVersionData.minor += 1;
             newVersionData.patch = 0;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             newVersionData.pre = [0];
             break;
         case consts_1.BUMP_LEVEL.PRE_PATCH:
             logger.info('Bumping pre-patch version...');
             newVersionData.patch += 1;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             newVersionData.pre = [0];
             break;
         case consts_1.BUMP_LEVEL.PRE_RELEASE:
@@ -77,7 +77,7 @@ function bumpVersionData(versionData, bumpLevel, internalOpts, restartBuildVersi
             if (!versionData.pre) {
                 newVersionData.patch += 1;
             }
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
             newVersionData.pre = bumpArray(versionData.pre);
             break;
         case consts_1.BUMP_LEVEL.BUILD_RELEASE:
@@ -97,7 +97,7 @@ function bumpVersionData(versionData, bumpLevel, internalOpts, restartBuildVersi
             }
             newVersionData.patch += 1;
             newVersionData.pre = undefined;
-            newVersionData.build = restartBuildVersion ? 0 : undefined;
+            newVersionData.build = restartBuildVersion ? [0] : undefined;
     }
     newVersionData.version = versionObjToString(newVersionData);
     return newVersionData;

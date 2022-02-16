@@ -27,7 +27,7 @@ export function bumpVersionData (
       // so no update to the major version happens
       if (newVersionData.pre) {
         newVersionData.pre = undefined
-        newVersionData.build = restartBuildVersion ? 0 : undefined
+        newVersionData.build = restartBuildVersion ? [0] : undefined
         break
       }
 
@@ -36,13 +36,13 @@ export function bumpVersionData (
       newVersionData.patch = 0
 
       newVersionData.pre = undefined
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       break
     case BUMP_LEVEL.MINOR:
       logger.info('Bumping minor version...')
       if (newVersionData.pre) {
         newVersionData.pre = undefined
-        newVersionData.build = restartBuildVersion ? 0 : undefined
+        newVersionData.build = restartBuildVersion ? [0] : undefined
         break
       }
 
@@ -50,19 +50,19 @@ export function bumpVersionData (
       newVersionData.patch = 0
 
       newVersionData.pre = undefined
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       break
     case BUMP_LEVEL.PATCH:
       logger.info('Bumping patch version...')
       if (newVersionData.pre) {
         newVersionData.pre = undefined
-        newVersionData.build = restartBuildVersion ? 0 : undefined
+        newVersionData.build = restartBuildVersion ? [0] : undefined
         break
       }
 
       newVersionData.patch += 1
       newVersionData.pre = undefined
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       break
     case BUMP_LEVEL.PRE_MAJOR:
       logger.info('Bumping pre-major version...')
@@ -70,7 +70,7 @@ export function bumpVersionData (
       newVersionData.minor = 0
       newVersionData.patch = 0
 
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       newVersionData.pre = [0]
       break
     case BUMP_LEVEL.PRE_MINOR:
@@ -78,14 +78,14 @@ export function bumpVersionData (
       newVersionData.minor += 1
       newVersionData.patch = 0
 
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       newVersionData.pre = [0]
       break
     case BUMP_LEVEL.PRE_PATCH:
       logger.info('Bumping pre-patch version...')
       newVersionData.patch += 1
 
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       newVersionData.pre = [0]
       break
     case BUMP_LEVEL.PRE_RELEASE:
@@ -94,7 +94,7 @@ export function bumpVersionData (
         newVersionData.patch += 1
       }
 
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
       newVersionData.pre = bumpArray(versionData.pre)
       break
     case BUMP_LEVEL.BUILD_RELEASE:
@@ -117,7 +117,7 @@ export function bumpVersionData (
 
       newVersionData.patch += 1
       newVersionData.pre = undefined
-      newVersionData.build = restartBuildVersion ? 0 : undefined
+      newVersionData.build = restartBuildVersion ? [0] : undefined
   }
 
   newVersionData.version = versionObjToString(newVersionData)
