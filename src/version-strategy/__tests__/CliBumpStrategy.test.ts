@@ -54,13 +54,13 @@ describe('CliBumpStrategy', () => {
     const versionData = await s.getNextVersion()
 
     expect(versionData).toEqual({
-      build: 0,
+      build: [0],
       major: 1,
       minor: 2,
       patch: 3,
       pre: undefined,
       matches: true,
-      version: '1.2.3'
+      version: '1.2.3+0'
     })
   })
 
